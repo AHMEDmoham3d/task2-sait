@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+==========================================================================
+【AI HANDOVER NOTE】
+1. DESIGN PHILOSOPHY:
+   - Code-First Aesthetic: This documentation site embraces a developer-centric visual language inspired by modern IDEs and terminal interfaces
+   - Educational Clarity: High contrast, clear hierarchy, and syntax-inspired color coding to make technical concepts immediately scannable
+   - Dark-Native Design: Optimized for extended reading sessions with reduced eye strain, reflecting the developer workflow environment
+   - Technical Sophistication: Uses subtle gradients, code block styling, and monospace accents to reinforce the technical nature of the content
+
+2. TYPOGRAPHY:
+   - Inter: Selected for exceptional legibility at all sizes, geometric precision, and wide language support. Its neutral character ensures content remains the focus while maintaining a modern tech aesthetic
+   - JetBrains Mono: Purpose-built for code display with enhanced ligatures and character distinction. Used for code snippets, API keys, URLs, and technical identifiers throughout the documentation
+
+3. COLOR SYSTEM:
+   - Brand Primary (Hue 260): Deep violet-blue evokes technical depth and innovation, commonly associated with developer tools and modern SaaS platforms
+   - --brand maps to --primary for CTAs and interactive elements, --accent for code highlights and syntax elements, --ring for focus states
+   - Success (Hue 150): Emerald green for successful API connections and positive feedback
+   - Warning (Hue 45): Amber for important notices and configuration warnings
+   - Destructive (Hue 10): Coral-red for error states and critical alerts
+   - Chart colors use syntax-inspired hues: purple (functions), cyan (strings), orange (keywords), green (comments), pink (variables)
+
+4. USAGE GUIDE:
+   - Layout: Full-width dashboard with sidebar navigation (collapsible). Documentation pages use centered container (max-w-4xl) with sticky sidebar for topic navigation
+   - Code Blocks: Use card with muted background, accent border-left, and mono font. Syntax highlighting via chart colors
+   - Admin Dashboard: Bento-style grid layout with glassmorphism cards (backdrop-blur-sm) for data tables and statistics
+   - Interactive Elements: Subtle rim-light effect on hover (border-accent with reduced opacity), smooth transitions for all state changes
+   - Special Effects: Use --ring with 2px offset for focus states, --border with 1px for card separations, --input background for form fields with slight transparency
+==========================================================================
+*/
+
+:root {
+  /* Typography */
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: JetBrains Mono, Consolas, Monaco, 'Courier New', monospace;
+  
+  /* Radius */
+  --radius: 0.5rem;
+
+  /* Core UI Tokens */
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.15 0.01 260);
+  --card: oklch(0.98 0.005 260);
+  --card-foreground: oklch(0.18 0.01 260);
+  --popover: oklch(0.99 0 0);
+  --popover-foreground: oklch(0.15 0.01 260);
+  --primary: oklch(0.45 0.18 260);
+  --primary-foreground: oklch(0.98 0.01 260);
+  --secondary: oklch(0.92 0.01 260);
+  --secondary-foreground: oklch(0.22 0.02 260);
+  --muted: oklch(0.94 0.008 260);
+  --muted-foreground: oklch(0.48 0.02 260);
+  --accent: oklch(0.88 0.04 260);
+  --accent-foreground: oklch(0.25 0.03 260);
+  --destructive: oklch(0.55 0.22 10);
+  --destructive-foreground: oklch(0.98 0.01 10);
+  --border: oklch(0.88 0.01 260);
+  --input: oklch(0.90 0.01 260);
+  --ring: oklch(0.45 0.18 260);
+  
+  /* Chart Tokens */
+  --chart-1: oklch(0.50 0.20 280);
+  --chart-2: oklch(0.55 0.18 190);
+  --chart-3: oklch(0.60 0.20 35);
+  --chart-4: oklch(0.52 0.16 150);
+  --chart-5: oklch(0.58 0.22 330);
+  
+  /* Sidebar Tokens */
+  --sidebar: oklch(0.97 0.005 260);
+  --sidebar-foreground: oklch(0.20 0.01 260);
+  --sidebar-primary: oklch(0.45 0.18 260);
+  --sidebar-primary-foreground: oklch(0.98 0.01 260);
+  --sidebar-accent: oklch(0.90 0.02 260);
+  --sidebar-accent-foreground: oklch(0.22 0.02 260);
+  --sidebar-border: oklch(0.86 0.01 260);
+  --sidebar-ring: oklch(0.45 0.18 260);
+}
+
+.dark {
+  --background: oklch(0.12 0.015 260);
+  --foreground: oklch(0.92 0.01 260);
+  --card: oklch(0.15 0.018 260);
+  --card-foreground: oklch(0.90 0.01 260);
+  --popover: oklch(0.13 0.016 260);
+  --popover-foreground: oklch(0.92 0.01 260);
+  --primary: oklch(0.65 0.22 260);
+  --primary-foreground: oklch(0.12 0.015 260);
+  --secondary: oklch(0.22 0.025 260);
+  --secondary-foreground: oklch(0.88 0.01 260);
+  --muted: oklch(0.20 0.02 260);
+  --muted-foreground: oklch(0.58 0.02 260);
+  --accent: oklch(0.28 0.05 260);
+  --accent-foreground: oklch(0.90 0.01 260);
+  --destructive: oklch(0.60 0.25 10);
+  --destructive-foreground: oklch(0.95 0.01 10);
+  --border: oklch(0.25 0.025 260);
+  --input: oklch(0.23 0.022 260);
+  --ring: oklch(0.65 0.22 260);
+  
+  /* Chart Tokens */
+  --chart-1: oklch(0.65 0.24 280);
+  --chart-2: oklch(0.68 0.22 190);
+  --chart-3: oklch(0.70 0.24 35);
+  --chart-4: oklch(0.65 0.20 150);
+  --chart-5: oklch(0.68 0.26 330);
+  
+  /* Sidebar Tokens */
+  --sidebar: oklch(0.14 0.017 260);
+  --sidebar-foreground: oklch(0.88 0.01 260);
+  --sidebar-primary: oklch(0.65 0.22 260);
+  --sidebar-primary-foreground: oklch(0.12 0.015 260);
+  --sidebar-accent: oklch(0.26 0.04 260);
+  --sidebar-accent-foreground: oklch(0.90 0.01 260);
+  --sidebar-border: oklch(0.22 0.023 260);
+  --sidebar-ring: oklch(0.65 0.22 260);
+}
+
+@theme inline {
+  /* Shadcn Core Mapping */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Charts Mapping */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar Mapping */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Typography */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  /* Radius */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans min-h-screen;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  code, pre {
+    @apply font-mono;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-primary;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40;
+  }
+}
