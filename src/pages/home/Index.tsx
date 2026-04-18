@@ -70,12 +70,6 @@ export default function Home() {
               >
                 Start Learning <ArrowRight className="w-4 h-4" />
               </NavLink>
-              <NavLink
-                to={ROUTE_PATHS.ADMIN}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border bg-card text-foreground font-semibold hover:bg-accent transition-colors"
-              >
-                <Shield className="w-4 h-4" /> Admin Panel
-              </NavLink>
             </div>
           </motion.div>
         </div>
@@ -87,7 +81,7 @@ export default function Home() {
           }}
         />
         {/* Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full -z-10 opacity-10"
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-100 rounded-full -z-10 opacity-10"
           style={{ background: 'radial-gradient(circle, var(--primary) 0%, transparent 70%)' }}
         />
       </section>
@@ -116,7 +110,7 @@ export default function Home() {
             {topics.map((topic) => (
               <motion.div key={topic.path} variants={staggerItem}>
                 <NavLink to={topic.path} className="block group">
-                  <div className={`p-6 rounded-xl border border-border bg-gradient-to-br ${topic.color} hover:border-primary/40 transition-all duration-300`}
+                  <div className={`p-6 rounded-xl border border-border bg-linear-to-br ${topic.color} hover:border-primary/40 transition-all duration-300`}
                     style={{ boxShadow: '0 4px 20px -4px color-mix(in srgb, var(--primary) 8%, transparent)' }}
                   >
                     <div className="flex items-start justify-between mb-4">
@@ -158,12 +152,12 @@ export default function Home() {
             <div className="flex flex-col items-center px-6 gap-1">
               <div className="text-xs font-mono text-muted-foreground">HTTP Requests</div>
               <div className="flex items-center gap-2">
-                <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-chart-4" />
+                <div className="w-16 h-0.5 bg-linear-to-r from-primary to-chart-4" />
                 <ArrowRight className="w-4 h-4 text-chart-4 -ml-1" />
               </div>
               <div className="flex items-center gap-2">
                 <ArrowRight className="w-4 h-4 text-primary rotate-180 -mr-1" />
-                <div className="w-16 h-0.5 bg-gradient-to-l from-primary to-chart-4" />
+                <div className="w-16 h-0.5 bg-linear-to-l from-primary to-chart-4" />
               </div>
               <div className="text-xs font-mono text-muted-foreground">JSON Response</div>
             </div>
